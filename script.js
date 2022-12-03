@@ -54,3 +54,13 @@ let users = [
 "address": "314 Dunne Place, Bawcomville, Guam, 9053"
 }
 ]
+
+users.forEach(user => user.balance = +user.balance.replace(/[\$\,]/g, ""));
+
+let usersMoreThen2000 = users.filter(user => user.balance > 2000);
+console.log(usersMoreThen2000);
+
+let totalOnBalance = usersMoreThen2000.reduce((total, user) => {
+    return total + user.balance
+}, 0);
+console.log(totalOnBalance);
